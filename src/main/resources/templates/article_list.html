@@ -6,12 +6,14 @@
 </head>
 <body>
 <table>
-    <tr>
+    <th>
         <td>제목</td>
+    </th>
+    <tr th:each="article : ${articleList}">
+        <td><a th:text="${article.title}" th:href="@{|/article/detail/{article.id}|}"></a>
+        </td>
     </tr>
-<tr th:each="article : {articleList}">
-    <td th:text="${article.title}"></td>
-</tr>
 </table>
+<button type="button" onclick="location.href= '/article/create' ">질문등록 ㄱㄱ</button>
 </body>
 </html>

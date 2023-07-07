@@ -19,12 +19,13 @@ public class ArticleController {
 
     @GetMapping("/article/detail/{id}")
     public String aDetail(@PathVariable("id") Integer id, Model model){
-
+        model.addAttribute("article", articleService.getArticle(id));
         return "article_detail";
     }
 
     @PostMapping("/article/create")
     public String aCreate(ArticleForm articleForm){
+        articleService.create(articleForm);
         return "redirect:/article/list";
     }
 
