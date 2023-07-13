@@ -6,7 +6,9 @@
 </head>
 <body>
 <div>
-    <form th:action="@{|/article/create|}" th:object="${articleForm}" method="post">
+    <nav th:replace="~{navbar :: navbarFragment}"></nav>
+    <form th:object="${articleForm}" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <lable for="title">제목</lable>
         <input type="text" name="title" id="title" th:field="*{title}">
         <lable for="content">내용</lable>

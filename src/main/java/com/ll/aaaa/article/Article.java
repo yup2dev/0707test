@@ -1,9 +1,7 @@
 package com.ll.aaaa.article;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.ll.aaaa.user.SiteUser;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,4 +16,6 @@ public class Article {
     private String title;
     @Column
     private String content;
+    @ManyToOne
+    private SiteUser user;
 }

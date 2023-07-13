@@ -5,12 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+<nav th:replace="~{navbar :: navbarFragment}"></nav>
+<form id="searchForm" th:action="@{/article/list}" method="get" onsubmit="storeInputValues()">
+    <input type="text" name="keyword" th:value="${keyword}" value=""
+           placeholder="작성글을 찾으시오">
+    </form>
 <table>
     <th>
         <td>제목</td>
     </th>
     <tr th:each="article : ${articleList}">
-        <td><a th:text="${article.title}" th:href="@{|/article/detail/{article.id}|}"></a>
+        <td><a th:text="${article.title}" th:href="@{|/article/detail/${article.id}|}"></a>
         </td>
     </tr>
 </table>
